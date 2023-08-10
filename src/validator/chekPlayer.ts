@@ -14,7 +14,8 @@ const checkNameMiddleware: RequestHandler = async (req, res, next) => {
     });
 
     if (player) {
-      res.status(403).json({ error: "Le nom d'utilisateur existe déjà" });
+      //res.status(403).json({ error: "Le nom d'utilisateur existe déjà" });
+      res.send(player);
     } else {
       next();
     }
