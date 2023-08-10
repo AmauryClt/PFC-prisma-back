@@ -2,20 +2,23 @@
   "name": "PFC-prisma-back",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node src/app.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^4.17.17",
     "@types/node": "^20.4.9",
+    "nodemon": "^3.0.1",
     "prisma": "^5.1.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@prisma/client": "5.1.1"
+    "@prisma/client": "5.1.1",
+    "express": "^4.18.2"
   }
 }

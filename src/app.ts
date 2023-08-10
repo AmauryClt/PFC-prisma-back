@@ -1,5 +1,5 @@
-const express = require("express");
-const router = require("./router");
+import express from "express";
+import router from "./router";
 
 const app = express();
 
@@ -12,5 +12,3 @@ const server = app.listen(5000, () =>
 🚀 Server ready at: http://localhost:5000
 ⭐️ See sample requests: http://pris.ly/e/ts/rest-express#3-using-the-rest-api`)
 );
-
-module.exports = app;

@@ -1,8 +1,9 @@
-import { Prisma, PrismaClient } from "@prisma/client";
+const { PrismaClient } = require("@prisma/client");
+import { RequestHandler } from "express";
 
 const prisma = new PrismaClient();
 
-const browse = async (req, res) => {
+const browse: RequestHandler = async (req, res) => {
   try {
     const players = await prisma.player.findMany();
     res.send(players);
@@ -12,7 +13,7 @@ const browse = async (req, res) => {
   }
 };
 
-const read = async (req, res) => {
+const read: RequestHandler = async (req, res) => {
   const playerId = parseInt(req.params.id);
 
   try {
@@ -31,7 +32,7 @@ const read = async (req, res) => {
   }
 };
 
-const edit = async (req, res) => {
+const edit: RequestHandler = async (req, res) => {
   const playerId = parseInt(req.params.id);
   const newData = req.body;
 
@@ -52,9 +53,9 @@ const edit = async (req, res) => {
   }
 };
 
-const add = async (req, res) => {
+const add: RequestHandler = async (req, res) => {
   try {
-    const postPLayer = await prisma.player.create({
+    const postPlayer = await prisma.player.create({
       data: { name: req.body.name },
     });
 
@@ -69,7 +70,7 @@ const add = async (req, res) => {
   }
 };
 
-const destroy = async (req, res) => {
+const destroy: RequestHandler = async (req, res) => {
   const playerId = parseInt(req.params.id);
 
   try {
@@ -89,10 +90,4 @@ const destroy = async (req, res) => {
   }
 };
 
-module.exports = {
-  browse,
-  read,
-  edit,
-  add,
-  destroy,
-};
+export { browse, read, edit, add, destroy };
